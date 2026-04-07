@@ -329,27 +329,19 @@
   </div>
 
   <!-- SEARCH -->
-  <div class="search-section">
-    <h2><span class="icon">🔍</span> 备考资料搜索</h2>
-    <div class="search-tabs">
-      <div class="search-tab active" onclick="setSearchType('cpa',this)">CPA注册会计师</div>
-      <div class="search-tab" onclick="setSearchType('zhongji',this)">中级会计职称</div>
-      <div class="search-tab" onclick="setSearchType('shuiwu',this)">税务师</div>
-    </div>
-    <div class="search-row">
-      <input class="search-input" id="searchInput" type="text" placeholder="搜索备考资料、真题、讲义、知识点..." />
-      <button class="search-btn" onclick="doSearch('baidu')">百度搜索</button>
-    </div>
-    <div class="quick-searches" id="quickTags"></div>
-    <div style="margin-top:14px; font-size:12px; color:var(--muted);">多平台搜索：</div>
-    <div class="search-engines">
-      <button class="engine-btn" onclick="doSearch('baidu')">🔵 百度</button>
-      <button class="engine-btn" onclick="doSearch('bing')">🔷 必应</button>
-      <button class="engine-btn" onclick="doSearch('zhihu')">🟠 知乎</button>
-      <button class="engine-btn" onclick="doSearch('baidu_wenku')">📄 百度文库</button>
-    </div>
+<div class="search-section">
+  <h2><span class="icon">🔍</span> 帕丝学堂资料搜索</h2>
+  <div class="search-tabs">
+    <div class="search-tab active" onclick="setSearchType('cpa',this)">CPA注册会计师</div>
+    <div class="search-tab" onclick="setSearchType('zhongji',this)">中级会计职称</div>
+    <div class="search-tab" onclick="setSearchType('shuiwu',this)">税务师</div>
   </div>
-
+  <div class="search-row">
+    <input class="search-input" id="searchInput" type="text" placeholder="搜索备考资料、真题、讲义、知识点..." />
+    <button class="search-btn" onclick="doSearch('pasixuetang')">🔍 搜索帕丝学堂</button>
+  </div>
+  <div class="quick-searches" id="quickTags"></div>
+</div>
   <!-- SUBJECT COMBINATION -->
   <div class="search-section">
     <h3>📊 CPA 科目搭配推荐</h3>
@@ -712,7 +704,7 @@ function renderQuickTags(type) {
 renderQuickTags('cpa');
 function setAndSearch(tag) {
   document.getElementById('searchInput').value = tag;
-  doSearch('baidu');
+  doSearch('pasixuetang');
 }
 
 // ── SEARCH ──
@@ -721,16 +713,12 @@ function doSearch(engine) {
   const typePrefix = { cpa: 'CPA注册会计师 ', zhongji: '中级会计职称 ', shuiwu: '税务师 ' };
   const query = encodeURIComponent((typePrefix[currentType] || '') + input);
   const urls = {
-    baidu: `https://www.baidu.com/s?wd=${query}`,
-    bing: `https://cn.bing.com/search?q=${query}`,
-    zhihu: `https://www.zhihu.com/search?type=content&q=${query}`,
-    bilibili: `https://search.bilibili.com/all?keyword=${query}`,
-    baidu_wenku: `https://wenku.baidu.com/search?word=${query}`
+    pasixuetang: `https://www.bing.com/search?q=帕丝学堂+${query}`
   };
   if (urls[engine]) window.open(urls[engine], '_blank');
 }
 document.getElementById('searchInput').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') doSearch('baidu');
+  if (e.key === 'Enter') doSearch('pasixuetang');
 });
 
 // ── PLAN TABS ──
