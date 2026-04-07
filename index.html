@@ -281,6 +281,209 @@
   }
   .countdown-item .days-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
   .countdown-item .exam-date { font-size: 11px; color: var(--muted); margin-top: 6px; }
+  /* ── AI RECOMMEND ── */
+  .ai-recommend-card {
+    background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%);
+    border-radius: var(--radius);
+    padding: 24px 24px;
+    margin-bottom: 24px;
+    border: 2px solid #bfdbfe;
+  }
+  .ai-recommend-card h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-dark);
+  }
+  .ai-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-left: auto;
+  }
+  .ai-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .ai-feature-item {
+    background: rgba(255,255,255,0.7);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ai-feature-item span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .ai-btn {
+    display: block;
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s;
+    text-align: center;
+  }
+  .ai-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37,99,235,0.3);
+  }
+
+  /* ── CASE STUDIES ── */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .case-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px 20px;
+    border: 1.5px solid transparent;
+    transition: all 0.18s;
+  }
+  .case-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(37,99,235,0.13);
+  }
+  .case-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .case-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .case-name {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .case-label {
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .case-result {
+    background: #f0fdf4;
+    color: var(--green);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .case-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .case-quote {
+    font-size: 12px;
+    color: var(--text);
+    background: #f8faff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-top: 12px;
+    border-left: 3px solid var(--primary);
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal-box {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px 36px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+  }
+  .modal-close:hover { background: #e2e8f0; }
+  .modal-qrcode {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 18px;
+    border-radius: 12px;
+    background: #f8faff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--border);
+  }
+  .modal-tips {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+    text-align: left;
+    background: #f8faff;
+    padding: 12px 14px;
+    border-radius: 10px;
+    margin-top: 14px;
+  }
+  .modal-tips span {
+    display: block;
+    margin-bottom: 4px;
+  }
+
 
   /* ── FOOTER ── */
   .footer {
@@ -299,6 +502,25 @@
     <input type="password" id="passwordInput" style="width: 100%; padding: 12px 16px; border: 2px solid var(--border); border-radius: 10px; font-size: 16px; text-align: center; margin-bottom: 16px; outline: none;" placeholder="请输入密码" />
     <button onclick="checkPassword()" style="width: 100%; padding: 12px; background: var(--primary); color: #fff; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer;">确认访问</button>
     <div id="passwordError" style="color: var(--red); font-size: 12px; margin-top: 8px; min-height: 18px;"></div>
+  </div>
+</div>
+<!-- CONSULT MODAL -->
+<div id="consultModal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeConsultModal()">✕</button>
+    <div style="font-size: 32px; margin-bottom: 12px;">👋</div>
+    <h2 style="font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 8px;">找一诺领取学习方案</h2>
+    <p style="font-size: 13px; color: var(--muted); margin-bottom: 18px;">扫码添加帕丝学堂学习规划师，获取专属备考方案 & 限时优惠</p>
+    <div class="modal-qrcode">
+      <img src="qrcode.png" alt="企业微信二维码" style="width:100%;height:100%;border-radius:12px;" />
+    </div>
+    <div class="modal-tips">
+      <span>✅ 备注备考咨询获取</span>
+      <span>✅ 专属学习规划</span>
+      <span>✅ 三轮备考方案</span>
+      <span>✅ 班型详情报价</span>
+      <span>✅ 限时学习优惠</span>
+    </div>
   </div>
 </div>
 
@@ -630,6 +852,101 @@
       三轮下来，帕丝单科通过率约 <span style="font-size:20px;font-weight:800;">92%</span> 🎯
     </div>
   </div>
+  <!-- AI RECOMMEND -->
+  <div class="ai-recommend-card">
+    <h2>🤖 AI 智能备考推荐 <span class="ai-tag">核心服务</span></h2>
+    <div class="ai-features">
+      <div class="ai-feature-item">✅ <span>1对1专属计划</span></div>
+      <div class="ai-feature-item">✅ <span>每日监督复盘</span></div>
+      <div class="ai-feature-item">✅ <span>实时答疑解惑</span></div>
+      <div class="ai-feature-item">✅ <span>三轮科学备考</span></div>
+      <div class="ai-feature-item">✅ <span>考前冲刺特训</span></div>
+      <div class="ai-feature-item">✅ <span>不过免费重学</span></div>
+    </div>
+    <button class="ai-btn" onclick="openConsultModal()">🎯 立即获取专属备考方案</button>
+  </div>
+
+  <!-- CASE STUDIES -->
+  <div class="section-title">💪 学员成功案例</div>
+  <div class="cases-grid">
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-avatar">👨‍💼</div>
+        <div>
+          <div class="case-name">张先生</div>
+          <div class="case-label">45岁 · 企业财务经理</div>
+        </div>
+      </div>
+      <div class="case-result">🏆 2年通过CPA 6科</div>
+      <div class="case-desc">在职备考，每天学习2小时，通过帕丝1对1带学服务，科学规划时间，成功上岸！</div>
+      <div class="case-quote">"帕丝的1对1监督太有用了，每天不学习都会提醒，不然早就放弃了"</div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-avatar">👩‍🎓</div>
+        <div>
+          <div class="case-name">李女士</div>
+          <div class="case-label">28岁 · 在职会计</div>
+        </div>
+      </div>
+      <div class="case-result">🎯 1年通过中级3科</div>
+      <div class="case-desc">零基础备考，帕丝学堂带学班系统学习，三轮备考法效果显著，一次通关！</div>
+      <div class="case-quote">"老师制定的计划非常详细，跟着走就能过，比自己瞎学强太多了"</div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-avatar">👨‍🎓</div>
+        <div>
+          <div class="case-name">王同学</div>
+          <div class="case-label">22岁 · 大四学生</div>
+        </div>
+      </div>
+      <div class="case-result">🌟 毕业2年拿CPA</div>
+      <div class="case-desc">大三开始备考，帕丝定制学生方案，利用暑假集中突破，毕业即拿证！</div>
+      <div class="case-quote">"从会计小白到CPA持证人，帕丝给了我完整的职业规划"</div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-avatar">👩‍💼</div>
+        <div>
+          <div class="case-name">陈女士</div>
+          <div class="case-label">35岁 · 审计师</div>
+        </div>
+      </div>
+      <div class="case-result">📚 税务师+CPA双证</div>
+      <div class="case-desc">同时备考税务师和CPA，帕丝协调规划科目搭配，2年拿双证，升职加薪！</div>
+      <div class="case-quote">"双证在手，职场竞争力直接拉满，谢谢帕丝的指导"</div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-avatar">👨‍💻</div>
+        <div>
+          <div class="case-name">刘先生</div>
+          <div class="case-label">32岁 · IT转行</div>
+        </div>
+      </div>
+      <div class="case-result">🔄 零基础转行成功</div>
+      <div class="case-desc">IT行业转行会计，帕丝1对1指导从零开始，1年过3科，成功转岗！</div>
+      <div class="case-quote">"完全不懂会计，老师一点点教，现在我已经是财务经理了"</div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-avatar">👩</div>
+        <div>
+          <div class="case-name">赵女士</div>
+          <div class="case-label">49岁 · 企业高管</div>
+        </div>
+      </div>
+      <div class="case-result">🏅 49岁2年过CPA</div>
+      <div class="case-desc">年龄大、工作忙，帕丝定制灵活方案，碎片时间高效学习，成功拿下！</div>
+      <div class="case-quote">"年龄不是问题，方法对了，谁都能过。帕丝给了我信心"</div>
+    </div>
+  </div>
 
 </div>
 
@@ -745,6 +1062,14 @@ document.getElementById('taxDays').textContent = calcDays('2026-11-01');
 const now = new Date();
 document.getElementById('updateTime').textContent =
   `页面更新：${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+// ── CONSULT MODAL ──
+function openConsultModal() {
+  document.getElementById('consultModal').classList.add('active');
+}
+function closeConsultModal() {
+  document.getElementById('consultModal').classList.remove('active');
+}
+
 </script>
 </body>
 </html>
