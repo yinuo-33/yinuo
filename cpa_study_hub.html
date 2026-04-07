@@ -602,6 +602,87 @@
   .modal-qrcode img { width: 200px; height: 200px; display: block; border-radius: 8px; }
   .modal-tips { font-size: 12px; color: var(--muted); line-height: 1.8; }
   .modal-tips strong { color: var(--text); }
+  /* ── 案例卡片 ── */
+  .success-cases-section {
+    margin-top: 28px;
+    margin-bottom: 24px;
+  }
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }
+  @media (max-width: 700px) {
+    .cases-grid { grid-template-columns: 1fr; }
+  }
+  .case-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+    border-radius: 14px;
+    padding: 18px 18px 16px;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.08);
+    border: 1.5px solid #e0e7ff;
+    transition: all 0.25s ease;
+  }
+  .case-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(37,99,235,0.15);
+    border-color: var(--primary);
+  }
+  .case-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .case-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .case-info h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .case-info .identity {
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .case-result {
+    margin-bottom: 10px;
+    padding: 10px 12px;
+    background: linear-gradient(135deg, rgba(22,163,74,0.08), rgba(22,163,74,0.02));
+    border-left: 3px solid var(--green);
+    border-radius: 8px;
+  }
+  .case-result-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+  .case-result-detail {
+    font-size: 12px;
+    color: var(--text);
+  }
+  .case-method {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .case-method strong {
+    color: var(--primary);
+  }
+
 </style>
 </head>
 <body>
@@ -1076,6 +1157,114 @@
     <div style="text-align:center;margin-top:14px;background:#f8faff;border-radius:10px;padding:10px;font-size:13px;color:var(--primary);font-weight:600;">
       三轮下来，帕丝单科通过率约 <span style="font-size:20px;font-weight:800;">92%</span> 🎯
     </div>
+      <!-- SUCCESS CASES -->
+  <div class="success-cases-section">
+    <div class="section-title">🌟 帕丝学员成功案例</div>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-avatar">👨</div>
+          <div class="case-info">
+            <h4>张学员</h4>
+            <div class="identity">49岁 · 在职财务经理</div>
+          </div>
+        </div>
+        <div class="case-result">
+          <div class="case-result-text">✅ 2年通过CPA 6科</div>
+          <div class="case-result-detail">从零基础到全科通过，年龄不是阻碍！</div>
+        </div>
+        <div class="case-method">
+          <strong>备考方式：</strong>每天学习2小时，周末集中4-5小时。第一年会计+税法+经济法，第二年审计+财管+战略。全程跟着帕丝的三轮备考法，1对1监督陪伴，从未掉队！
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-avatar">👩</div>
+          <div class="case-info">
+            <h4>李姐姐</h4>
+            <div class="identity">59岁 · 已退休</div>
+          </div>
+        </div>
+        <div class="case-result">
+          <div class="case-result-text">✅ 2年通过CPA 5科</div>
+          <div class="case-result-detail">退休后重新出发，证明学习能力不因年龄减退</div>
+        </div>
+        <div class="case-method">
+          <strong>备考方式：</strong>每天学习3小时，严格执行三轮规划。第一年通过3科，第二年再过2科。坚持每天复盘，不懂就问，帕丝老师24小时答疑！
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-avatar">👨‍🎓</div>
+          <div class="case-info">
+            <h4>王同学</h4>
+            <div class="identity">应届毕业生 · 全职备考</div>
+          </div>
+        </div>
+        <div class="case-result">
+          <div class="case-result-text">✅ 1年通过CPA 6科</div>
+          <div class="case-result-detail">全职冲刺，毕业即拿证，求职竞争力MAX</div>
+        </div>
+        <div class="case-method">
+          <strong>备考方式：</strong>每天学习6-8小时，高强度备考。会计+审计+财管（大科）+税法+经济法+战略（小科）同时推进。帕丝1对1定制计划，全程陪伴！
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-avatar">👨</div>
+          <div class="case-info">
+            <h4>陈学员</h4>
+            <div class="identity">35岁 · 互联网产品经理</div>
+          </div>
+        </div>
+        <div class="case-result">
+          <div class="case-result-text">✅ 2年通过CPA 6科</div>
+          <div class="case-result-detail">在职备考，工作学习两不误</div>
+        </div>
+        <div class="case-method">
+          <strong>备考方式：</strong>工作日学习1.5-2小时，周末3-4小时。第一年会计+税法+经济法，第二年审计+财管+战略。利用碎片时间听音频，通勤学习两不误！
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-avatar">👩‍🎓</div>
+          <div class="case-info">
+            <h4>刘同学</h4>
+            <div class="identity">会计专业应届毕业生</div>
+          </div>
+        </div>
+        <div class="case-result">
+          <div class="case-result-text">✅ 毕业即拿CPA证</div>
+          <div class="case-result-detail">大三开始备考，毕业时全科通过，完美衔接求职</div>
+        </div>
+        <div class="case-method">
+          <strong>备考方式：</strong>大三启动，会计+税法+经济法+战略与学校课程同步。大四冲刺审计+财管。帕丝规划与校内学习结合，事半功倍！
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-avatar">👩</div>
+          <div class="case-info">
+            <h4>赵学员</h4>
+            <div class="identity">文转理 · 零基础在职</div>
+          </div>
+        </div>
+        <div class="case-result">
+          <div class="case-result-text">✅ 3年通过CPA 6科</div>
+          <div class="case-result-detail">零基础起步，稳扎稳打最终通关</div>
+        </div>
+        <div class="case-method">
+          <strong>备考方式：</strong>每年备考2科，减轻压力。第一年经济法+战略（建立信心），第二年会计+税法（核心科目），第三年审计+财管（大科突破）。全程1对1带学监督！
+        </div>
+      </div>
+    </div>
+  </div>
+
   </div>
 </div>
 
