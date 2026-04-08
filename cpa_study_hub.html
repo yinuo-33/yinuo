@@ -378,7 +378,14 @@
     justify-content: center;
     font-size: 24px;
     margin: 0 auto 10px;
+    overflow: hidden;
   }
+  .teacher-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .teacher-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
   .teacher-role { font-size: 11px; color: #ec4899; font-weight: 600; margin-bottom: 8px; }
   .teacher-subjects { font-size: 12px; color: var(--muted); }
@@ -738,9 +745,6 @@
       <button class="engine-btn" onclick="doSearch('zhihu')">🟠 知乎</button>
       <button class="engine-btn" onclick="doSearch('baidu_wenku')">📄 百度文库</button>
       <button class="engine-btn" onclick="doXhsSearch()">🔴 小红书</button>
-    </div>
-    <div class="search-note">
-      💡 <strong>搜索提示：</strong>百度搜索已优化，优先显示帕丝学堂相关内容。其他机构（如高顿等）内容会靠后显示（约第3页），确保您首先找到最优质的帕丝学堂备考资料。
     </div>
   </div>
 
@@ -1123,50 +1127,76 @@
   </div>
 
   <!-- TEACHERS -->
-  <div class="card" style="margin-bottom:24px;">
-    <div class="section-title">🎓 明师团队 · 点击查看详细介绍</div>
-    <div class="teachers-grid" id="teachersGrid">
-      <div class="teacher-card" onclick="showTeacherDetail(1)">
-        <div class="teacher-avatar">🐒</div>
-        <div class="teacher-name">猴哥帕丝</div>
-        <div class="teacher-role">创始人</div>
-        <div class="teacher-subjects">主讲：经济法</div>
-      </div>
-      <div class="teacher-card" onclick="showTeacherDetail(2)">
-        <div class="teacher-avatar">🎯</div>
-        <div class="teacher-name">冯时</div>
-        <div class="teacher-role">CPA+税务师+经济师</div>
-        <div class="teacher-subjects">主讲：会计</div>
-      </div>
-      <div class="teacher-card" onclick="showTeacherDetail(3)">
-        <div class="teacher-avatar">⚡</div>
-        <div class="teacher-name">赵飞</div>
-        <div class="teacher-role">1年6科大神</div>
-        <div class="teacher-subjects">主讲：财管·税法</div>
-      </div>
-      <div class="teacher-card" onclick="showTeacherDetail(4)">
-        <div class="teacher-avatar">🔍</div>
-        <div class="teacher-name">任毅明</div>
-        <div class="teacher-role">8年实战经验</div>
-        <div class="teacher-subjects">主讲：审计</div>
-      </div>
-      <div class="teacher-card" onclick="showTeacherDetail(5)">
-        <div class="teacher-avatar">🌸</div>
-        <div class="teacher-name">封采</div>
-        <div class="teacher-role">2年3证达人</div>
-        <div class="teacher-subjects">主讲：经济法</div>
-      </div>
-      <div class="teacher-card" onclick="showTeacherDetail(6)">
-        <div class="teacher-avatar">🏆</div>
-        <div class="teacher-name">李洪辉</div>
-        <div class="teacher-role">云南领军人才</div>
-        <div class="teacher-subjects">主讲：战略</div>
-      </div>
-      <div class="teacher-card" onclick="showTeacherDetail(7)">
-        <div class="teacher-avatar">📊</div>
-        <div class="teacher-name">一立叁</div>
-        <div class="teacher-role">中级专属讲师</div>
-        <div class="teacher-subjects">主讲：中级实务·财管入门</div>
+  <!-- 猴哥帕丝 -->
+<div class="teacher-card" onclick="showTeacherDetail(1)">
+  <div class="teacher-avatar">
+    <img src="老师/猴哥.jpg" alt="猴哥帕丝" onerror="this.style.display='none';this.parentNode.textContent='🐒'" />
+  </div>
+  <div class="teacher-name">猴哥帕丝</div>
+  <div class="teacher-role">创始人</div>
+  <div class="teacher-subjects">主讲：经济法</div>
+</div>
+
+<!-- 冯时 -->
+<div class="teacher-card" onclick="showTeacherDetail(2)">
+  <div class="teacher-avatar">
+    <img src="老师/冯时.jpg" alt="冯时" onerror="this.style.display='none';this.parentNode.textContent='🎯'" />
+  </div>
+  <div class="teacher-name">冯时</div>
+  <div class="teacher-role">CPA+税务师+经济师</div>
+  <div class="teacher-subjects">主讲：会计</div>
+</div>
+
+<!-- 赵飞 -->
+<div class="teacher-card" onclick="showTeacherDetail(3)">
+  <div class="teacher-avatar">
+    <img src="老师/赵飞.jpg" alt="赵飞" onerror="this.style.display='none';this.parentNode.textContent='⚡'" />
+  </div>
+  <div class="teacher-name">赵飞</div>
+  <div class="teacher-role">1年6科大神</div>
+  <div class="teacher-subjects">主讲：财管·税法</div>
+</div>
+
+<!-- 任毅明 -->
+<div class="teacher-card" onclick="showTeacherDetail(4)">
+  <div class="teacher-avatar">
+    <img src="老师/任毅明.jpg" alt="任毅明" onerror="this.style.display='none';this.parentNode.textContent='🔍'" />
+  </div>
+  <div class="teacher-name">任毅明</div>
+  <div class="teacher-role">8年实战经验</div>
+  <div class="teacher-subjects">主讲：审计</div>
+</div>
+
+<!-- 封采 -->
+<div class="teacher-card" onclick="showTeacherDetail(5)">
+  <div class="teacher-avatar">
+    <img src="老师/封敏.jpg" alt="封采" onerror="this.style.display='none';this.parentNode.textContent='🌸'" />
+  </div>
+  <div class="teacher-name">封采</div>
+  <div class="teacher-role">2年3证达人</div>
+  <div class="teacher-subjects">主讲：经济法</div>
+</div>
+
+<!-- 李洪辉 -->
+<div class="teacher-card" onclick="showTeacherDetail(6)">
+  <div class="teacher-avatar">
+    <img src="老师/李洪辉.jpg" alt="李洪辉" onerror="this.style.display='none';this.parentNode.textContent='🏆'" />
+  </div>
+  <div class="teacher-name">李洪辉</div>
+  <div class="teacher-role">云南领军人才</div>
+  <div class="teacher-subjects">主讲：战略</div>
+</div>
+
+<!-- 一立叁 -->
+<div class="teacher-card" onclick="showTeacherDetail(7)">
+  <div class="teacher-avatar">
+    <img src="老师/一立叁.jpg" alt="一立叁" onerror="this.style.display='none';this.parentNode.textContent='📊'" />
+  </div>
+  <div class="teacher-name">一立叁</div>
+  <div class="teacher-role">中级专属讲师</div>
+  <div class="teacher-subjects">主讲：中级实务·财管入门</div>
+</div>
+
       </div>
     </div>
   </div>
@@ -1403,6 +1433,7 @@ const teachers = [
     id: 1,
     name: '猴哥帕丝',
     avatar: '🐒',
+    image: '老师/猴哥.jpg',
     subject: '主讲：CPA经济法',
     badges: ['CPA', '法考', '创始人'],
     desc: `<p><strong>帕丝学堂创始人，CPA+法考双证持有者</strong></p><p>一年速通CPA六科，曾任上市公司财务总监，主讲CPA经济法。擅长法理拆解，拒绝死记硬背，授课直击考点、应试性拉满。</p>`
@@ -1411,6 +1442,7 @@ const teachers = [
     id: 2,
     name: '冯时',
     avatar: '🎯',
+    image: '老师/冯时.jpg',
     subject: '主讲：CPA会计',
     badges: ['CPA', '税务师', '经济师'],
     desc: `<p><strong>CPA+税务师+经济师三证在手，TOP事务所项目经理，主讲CPA会计</strong></p><p>独创"点线面"教学法，只讲考点、不讲废话，理论结合实战，零基础也能快速吃透。</p>`
@@ -1419,6 +1451,7 @@ const teachers = [
     id: 3,
     name: '赵飞',
     avatar: '⚡',
+    image: '老师/赵飞.jpg',
     subject: '主讲：CPA财管/税法',
     badges: ['CPA一年六科'],
     desc: `<p><strong>一年过CPA六科，立信事务所资深审计经理，主讲CPA财管/税法</strong></p><p>融合六科知识体系，授课深入浅出，深谙命题规律，帮学员高效拿分。</p>`
@@ -1427,6 +1460,7 @@ const teachers = [
     id: 4,
     name: '任毅明',
     avatar: '🔍',
+    image: '老师/任毅明.jpg',
     subject: '主讲：CPA审计',
     badges: ['CPA', '中级', '税务师', '8年经验'],
     desc: `<p><strong>CPA+中级+税务师持证，8年财会授课经验，主讲CPA审计</strong></p><p>授课生动易懂，自编讲义被誉为"备考宝典"，零基础学员友好度拉满。</p>`
@@ -1435,6 +1469,7 @@ const teachers = [
     id: 5,
     name: '封采（封敏）',
     avatar: '🌸',
+    image: '老师/封敏.jpg',
     subject: '主讲：CPA经济法',
     badges: ['CPA', '法考', 'CIIA'],
     desc: `<p><strong>2年拿下CPA+法考+CIIA三证，主编多款爆款教辅资料，主讲CPA经济法</strong></p><p>擅长口诀记忆、对比讲解，大幅减轻背诵压力。</p>`
@@ -1443,6 +1478,7 @@ const teachers = [
     id: 6,
     name: '李洪辉',
     avatar: '🏆',
+    image: '老师/李洪辉.jpg',
     subject: '主讲：CPA战略',
     badges: ['CPA', '税务师', '高会', '领军人才'],
     desc: `<p><strong>云南会计领军人才，持有CPA+税务师+高会等多证书，大型企业财务总监，主讲CPA战略</strong></p><p>采用案例教学法，重点突出、通俗易懂。</p>`
@@ -1451,6 +1487,7 @@ const teachers = [
     id: 7,
     name: '一立叁',
     avatar: '📊',
+    image: '老师/一立叁.jpg',
     subject: '主讲：中级实务/财管入门',
     badges: ['中级专属'],
     desc: `<p><strong>中级会计专属讲师，主讲中级实务/财管入门</strong></p><p>专攻零基础破冰教学，详解计算器技巧、V模式输入法，帮小白快速入门。</p>`
@@ -1462,7 +1499,13 @@ function showTeacherDetail(id) {
   const teacher = teachers.find(t => t.id === id);
   if (!teacher) return;
   
-  document.getElementById('detailAvatar').textContent = teacher.avatar;
+  const avatarEl = document.getElementById('detailAvatar');
+  if (teacher.image) {
+    avatarEl.innerHTML = `<img src="${teacher.image}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display='none';this.parentNode.textContent='${teacher.avatar}'" />`;
+  } else {
+    avatarEl.textContent = teacher.avatar;
+  }
+  
   document.getElementById('detailName').textContent = teacher.name;
   document.getElementById('detailSubject').textContent = teacher.subject;
   document.getElementById('detailBadges').innerHTML = teacher.badges.map(b => 
