@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>帕丝学堂 · 备考资讯中心</title>
+<style>
+  :root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --accent: #f59e0b;
+    --accent-dark: #d97706;
+    --bg: #f0f4ff;
+    --card: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --green: #16a34a;
+    --red: #dc2626;
+    --purple: #7c3aed;
+    --teal: #0d9488;
+    --radius: 14px;
+    --shadow: 0 4px 24px rgba(37,99,235,0.10);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #7c3aed 100%);
+    color: #fff;
+    padding: 32px 24px 24px;
+    text-align: center;
+  }
+  header .logo { font-size: 13px; letter-spacing: 2px; opacity: 0.75; margin-bottom: 6px; }
+  header h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+  header p { font-size: 14px; opacity: 0.80; }
+  .update-badge {
+    display: inline-block;
+    margin-top: 10px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 20px;
+    padding: 3px 14px;
+    font-size: 12px;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .container { max-width: 1060px; margin: 0 auto; padding: 28px 16px 60px; }
+
+  /* ── SEARCH BOX ── */
+  .search-section {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 24px;
+    margin-bottom: 24px;
+  }
+  .search-section h2 { font-size: 17px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .search-section h2 span.icon { font-size: 20px; }
+  .search-section h3 { font-size: 16px; font-weight: 600; margin-bottom: 14px; }
+  .search-tabs {
+    display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;
+  }
+  .search-tab {
+    padding: 6px 18px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    transition: all 0.18s;
+  }
+  .search-tab.active, .search-tab:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+  .search-row { display: flex; gap: 10px; }
+  .search-input {
+    flex: 1;
+    padding: 12px 18px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.18s;
+  }
+  .search-input:focus { border-color: var(--primary); }
+  .search-btn {
+    padding: 12px 26px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s;
+  }
+  .search-btn:hover { background: var(--primary-dark); }
+  .quick-searches {
+    margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .quick-tag {
+    background: #eff6ff;
+    color: var(--primary);
+    border-radius: 16px;
+    padding: 4px 13px;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid #dbeafe;
+    transition: all 0.15s;
+  }
+  .quick-tag:hover { background: var(--primary); color: #fff; }
+  .search-engines {
+    margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap;
+  }
+  .engine-btn {
+    display: flex; align-items: center; gap: 5px;
+    padding: 7px 14px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    background: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--text);
+  }
+  .engine-btn:hover { border-color: var(--primary); color: var(--primary); }
+  .search-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 12px;
+    padding: 8px 12px;
+    background: #f0fdf4;
+    border-radius: 8px;
+    border-left: 3px solid var(--green);
+    line-height: 1.5;
+  }
+
+  /* ── QUICK LINKS ── */
+  .section-title {
+    font-size: 16px; font-weight: 600; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .link-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: var(--text);
+    border: 1.5px solid transparent;
+    transition: all 0.18s;
+    cursor: pointer;
+  }
+  .link-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(37,99,235,0.13);
+  }
+  .link-icon {
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .link-card .info .title { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+  .link-card .info .desc { font-size: 12px; color: var(--muted); }
+
+  /* ── TWO COLUMNS ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } .links-grid { grid-template-columns: 1fr 1fr; } }
+
+  /* ── PLAN CARD ── */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 22px 22px;
+  }
+  .plan-tabs { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+  .plan-tab {
+    padding: 5px 16px;
+    border-radius: 18px;
+    border: 1.5px solid var(--border);
+    font-size: 12px; font-weight: 500;
+    cursor: pointer; color: var(--muted);
+    transition: all 0.15s;
+  }
+  .plan-tab.active, .plan-tab:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .plan-content { display: none; }
+  .plan-content.active { display: block; }
+  .plan-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+  }
+  .plan-item:last-child { border-bottom: none; }
+  .plan-step {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--primary); color: #fff;
+    font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .plan-item .pi-title { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+  .plan-item .pi-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+  .hours-badge {
+    display: inline-block;
+    background: #eff6ff; color: var(--primary);
+    border-radius: 10px; padding: 1px 9px; font-size: 11px; font-weight: 600;
+    margin-left: 6px;
+  }
+
+  /* ── SUBJECT TABLE ── */
+  .subject-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .subject-item {
+    background: #f8faff; border-radius: 10px; padding: 12px 14px;
+    border-left: 3px solid var(--primary);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .subject-item .sname { font-size: 13px; font-weight: 600; }
+  .subject-item .shours {
+    font-size: 11px;
+    background: #dbeafe; color: #1d4ed8;
+    border-radius: 8px; padding: 2px 8px;
+  }
+  .big-subject { border-left-color: var(--red); }
+  .big-subject .shours { background: #fee2e2; color: #b91c1c; }
+
+  /* ── NEWS TICKER ── */
+  .news-bar {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 14px 20px;
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 14px;
+    overflow: hidden;
+  }
+  .news-label {
+    background: var(--accent);
+    color: #fff; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 6px; white-space: nowrap;
+  }
+  .news-scroll { overflow: hidden; flex: 1; }
+  .news-track {
+    display: flex; gap: 40px;
+    animation: scrollNews 30s linear infinite;
+    white-space: nowrap;
+  }
+  .news-track:hover { animation-play-state: paused; }
+  .news-item {
+    font-size: 13px; color: var(--muted); cursor: pointer;
+    text-decoration: none; display: inline-block;
+  }
+  .news-item:hover { color: var(--primary); text-decoration: underline; }
+  @keyframes scrollNews {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── COUNTDOWN ── */
+  .countdown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .countdown-item {
+    background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%);
+    border-radius: 12px; padding: 16px 16px;
+    text-align: center;
+  }
+  .countdown-item .exam-name { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .countdown-item .days {
+    font-size: 36px; font-weight: 800; color: var(--primary); line-height: 1;
+  }
+  .countdown-item .days-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .countdown-item .exam-date { font-size: 11px; color: var(--muted); margin-top: 6px; }
+
+  /* ── SUCCESS CASES ── */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .case-card {
+    background: linear-gradient(135deg, #fff, #f8faff);
+    border-radius: 12px;
+    padding: 18px;
+    border: 1.5px solid #e0e7ff;
+    transition: all 0.2s;
+  }
+  .case-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(37,99,235,0.12);
+    border-color: var(--primary);
+  }
+  .case-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .case-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), #7c3aed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .case-name { font-size: 14px; font-weight: 700; color: var(--text); }
+  .case-tag {
+    font-size: 10px;
+    background: #fef3c7;
+    color: #92400e;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+  }
+  .case-result {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+  .case-info {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── TEACHERS ── */
+  .teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .teacher-card {
+    background: linear-gradient(135deg, #fff, #fef9ff);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1.5px solid #fce7f3;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .teacher-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(236,72,153,0.1);
+    border-color: #ec4899;
+  }
+  .teacher-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 10px;
+  }
+  .teacher-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .teacher-role { font-size: 11px; color: #ec4899; font-weight: 600; margin-bottom: 8px; }
+  .teacher-subjects { font-size: 12px; color: var(--muted); }
+
+  /* ── TEACHER DETAIL MODAL ── */
+  .teacher-detail-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+  }
+  .teacher-detail-modal.active { display: flex; }
+  .teacher-detail-content {
+    background: #fff;
+    padding: 36px 28px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  .teacher-detail-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s;
+  }
+  .teacher-detail-close:hover { color: #333; }
+  .teacher-detail-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #fff;
+    margin: 0 auto 16px;
+  }
+  .teacher-detail-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .teacher-detail-badges {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .teacher-detail-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: #eff6ff;
+    color: var(--primary);
+    font-weight: 600;
+  }
+  .teacher-detail-subject {
+    font-size: 13px;
+    color: #ec4899;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .teacher-detail-desc {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.8;
+    text-align: left;
+  }
+  .teacher-detail-desc p {
+    margin-bottom: 12px;
+  }
+  .teacher-detail-desc strong {
+    color: var(--primary);
+  }
+
+  /* ── PRICE CARD ── */
+  .price-card {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border-radius: 12px;
+    padding: 16px 18px;
+    border: 1.5px solid #fbbf24;
+    text-align: center;
+  }
+  .price-card h3 { font-size: 14px; font-weight: 700; color: #92400e; margin-bottom: 6px; }
+  .price-card .price { font-size: 28px; font-weight: 800; color: var(--red); margin-bottom: 8px; }
+  .price-card .price-note { font-size: 11px; color: #a16207; margin-bottom: 10px; }
+  .price-card .consult-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+  }
+  .price-card .consult-btn:hover {
+    background: var(--accent-dark);
+    transform: scale(1.05);
+  }
+
+  /* ── USER FORM ── */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 13px; font-weight: 600; color: var(--text); }
+  .form-group input, .form-group select {
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.18s;
+  }
+  .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
+  .form-submit {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s;
+    margin-top: 16px;
+  }
+  .form-submit:hover { background: var(--primary-dark); }
+
+  /* ── RESULT DISPLAY ── */
+  #resultSection {
+    display: none;
+    margin-top: 28px;
+    animation: fadeIn 0.5s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .result-card {
+    background: linear-gradient(135deg, #fff, #f0fdf4);
+    border-radius: 14px;
+    padding: 24px;
+    border: 2px solid var(--green);
+    margin-bottom: 20px;
+  }
+  .result-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom:1px solid #dcfce7;
+  }
+  .result-title { font-size: 18px; font-weight: 700; color: var(--text); }
+  .result-badge {
+    background: var(--green);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .result-section {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+  .result-section h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .result-content {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .result-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  .result-content li {
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+  .result-content li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+  }
+  .enroll-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--green), #15803d);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 20px;
+  }
+  .enroll-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(22, 163, 74, 0.3);
+  }
+
+  /* ── MODAL ── */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  }
+  .modal.active { display: flex; }
+  .modal-content {
+    background: #fff;
+    padding: 36px 28px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 380px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+  .modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s;
+  }
+  .modal-close:hover { color: #333; }
+  .modal h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: var(--primary);
+  }
+  .modal p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .modal-qrcode {
+    width: 220px;
+    height: 220px;
+    border-radius: 16px;
+    border: 3px solid var(--border);
+    object-fit: cover;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center; padding: 24px; font-size: 12px; color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">帕丝学堂 · 学习规划师工具</div>
+  <h1>🎓 CPA & 中级备考资讯中心</h1>
+  <p>一站式搜索 · 学习规划 · 报名 · 成绩查询</p>
+  <div class="update-badge" id="updateTime">数据更新中...</div>
+</header>
+
+<div class="container">
+
+  <!-- NEWS TICKER -->
+  <div class="news-bar">
+    <span class="news-label">📢 最新动态</span>
+    <div class="news-scroll">
+      <div class="news-track" id="newsTrack">
+        <a class="news-item" href="https://www.cicpa.org.cn/" target="_blank">【CPA】2026年注册会计师考试报名时间已开放，请关注CICPA官网</a>
+        <a class="news-item" href="https://www.mohrss.gov.cn/" target="_blank">【中级】2026年中级会计职称报名时间请关注财政部官网通知</a>
+        <a class="news-item" href="https://www.cicpa.org.cn/" target="_blank">【CPA】综合阶段考试时间：每年8月底~9月初</a>
+        <a class="news-item" href="https://www.mof.gov.cn/" target="_blank">【中级】中级会计职称考试时间：一般9月下旬</a>
+        <a class="news-item" href="https://www.cicpa.org.cn/" target="_blank">【CPA】2025年成绩已公布，登录CICPA官网查询</a>
+        <a class="news-item" href="https://www.cicpa.org.cn/" target="_blank">【CPA】2026年注册会计师考试报名时间已开放，请关注CICPA官网</a>
+        <a class="news-item" href="https://www.mohrss.gov.cn/" target="_blank">【中级】2026年中级会计职称报名时间请关注财政部官网通知</a>
+        <a class="news-item" href="https://www.cicpa.org.cn/" target="_blank">【CPA】综合阶段考试时间：每年8月底~9月初</a>
+        <a class="news-item" href="https://www.mof.gov.cn/" target="_blank">【中级】中级会计职称考试时间：一般9月下旬</a>
+        <a class="news-item" href="https://www.cicpa.org.cn/" target="_blank">【CPA】2025年成绩已公布，登录CICPA官网查询</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-section">
+    <h2><span class="icon">🔍</span> 帕丝学堂备考资料搜索</h2>
+    <div class="search-tabs">
+      <div class="search-tab active" onclick="setSearchType('cpa',this)">CPA注册会计师</div>
+      <div class="search-tab" onclick="setSearchType('zhongji',this)">中级会计职称</div>
+      <div class="search-tab" onclick="setSearchType('shuiwu',this)">税务师</div>
+    </div>
+    
+    <!-- 帕丝学堂直达 -->
+    <div style="display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap;">
+      <button onclick="window.open('http://xhslink.com/o/9jjQRS7mvzN')" style="flex:1; padding:10px 16px; background:linear-gradient(135deg,#ec4899,#f472b6); color:#fff; border:none; border-radius:10px; font-size:13px; font-weight:600; cursor:pointer; transition:all 0.2s;">🌸 帕丝学堂小红书专属</button>
+    </div>
+    
+    <div class="search-row">
+      <input class="search-input" id="searchInput" type="text" placeholder="搜索备考资料、真题、讲义、知识点..." />
+      <button class="search-btn" onclick="doSearch('baidu')">百度搜索</button>
+    </div>
+    <div class="quick-searches" id="quickTags"></div>
+    <div style="margin-top:14px; font-size:12px; color:var(--muted);">多平台搜索：</div>
+    <div class="search-engines">
+      <button class="engine-btn" onclick="doSearch('baidu')">🔵 百度</button>
+      <button class="engine-btn" onclick="doSearch('zhihu')">🟠 知乎</button>
+      <button class="engine-btn" onclick="doSearch('baidu_wenku')">📄 百度文库</button>
+      <button class="engine-btn" onclick="doXhsSearch()">🔴 小红书</button>
+    </div>
+    <div class="search-note">
+      💡 <strong>搜索提示：</strong>百度搜索已优化，优先显示帕丝学堂相关内容。其他机构（如高顿等）内容会靠后显示（约第3页），确保您首先找到最优质的帕丝学堂备考资料。
+    </div>
+  </div>
+
+  <!-- SUBJECT COMBINATION -->
+  <div class="search-section">
+    <h3>📊 CPA 科目搭配推荐</h3>
+    <div class="combo-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px;">
+      <div class="combo-card" style="background: #f8faff; border-radius: 12px; padding: 16px 18px; border: 1.5px solid #e0e7ff;">
+        <div class="combo-title" style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--primary); display: flex; align-items: center; gap: 6px;">
+          <span>⭐ 稳妥型</span>
+          <span class="combo-badge" style="font-size: 10px; background: var(--accent); color: #fff; padding: 2px 8px; border-radius: 10px;">推荐</span>
+        </div>
+        <div class="combo-subjects" style="font-size: 13px; color: var(--text); margin-bottom: 8px; font-weight: 600;">会计 + 税法 + 经济法</div>
+        <div class="combo-reason" style="font-size: 12px; color: var(--muted); line-height: 1.5;">会计是基础科目，税法与会计关联紧密，经济法相对简单，难度适中，通过率较高</div>
+      </div>
+      <div class="combo-card" style="background: #f8faff; border-radius: 12px; padding: 16px 18px; border: 1.5px solid #e0e7ff;">
+        <div class="combo-title" style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--primary); display: flex; align-items: center; gap: 6px;">
+          <span>🔥 进阶型</span>
+          <span class="combo-badge" style="font-size: 10px; background: var(--accent); color: #fff; padding: 2px 8px; border-radius: 10px;">挑战</span>
+        </div>
+        <div class="combo-subjects" style="font-size: 13px; color: var(--text); margin-bottom: 8px; font-weight: 600;">会计 + 审计 + 税法</div>
+        <div class="combo-reason" style="font-size: 12px; color: var(--muted); line-height: 1.5;">三科联系紧密，审计与会计、税法相互印证，但难度较大，适合有一定基础考生</div>
+      </div>
+      <div class="combo-card" style="background: #f8faff; border-radius: 12px; padding: 16px 18px; border: 1.5px solid #e0e7ff;">
+        <div class="combo-title" style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--primary);">💪 冲刺型</div>
+        <div class="combo-subjects" style="font-size: 13px; color: var(--text); margin-bottom: 8px; font-weight: 600;">会计 + 财管 + 战略</div>
+        <div class="combo-reason" style="font-size: 12px; color: var(--muted); line-height: 1.5;">会计+财管计算量大，战略偏记忆，计算与记忆结合，适合在职考生分散压力</div>
+      </div>
+      <div class="combo-card" style="background: #f8faff; border-radius: 12px; padding: 16px 18px; border: 1.5px solid #e0e7ff;">
+        <div class="combo-title" style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--primary);">🎯 小科先行</div>
+        <div class="combo-subjects" style="font-size: 13px; color: var(--text); margin-bottom: 8px; font-weight: 600;">经济法 + 战略 + 税法</div>
+        <div class="combo-reason" style="font-size: 12px; color: var(--muted); line-height: 1.5;">先过三小科建立信心，为第二年攻克大科(会计/审计/财管)打下基础</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OFFICIAL LINKS -->
+  <div class="section-title">🔗 官方入口 · 一键直达</div>
+  <div class="links-grid">
+    <a class="link-card" href="https://cpaexam.cicpa.org.cn/" target="_blank">
+      <div class="link-icon" style="background:#eff6ff;">📋</div>
+      <div class="info">
+        <div class="title">CPA 报名入口</div>
+        <div class="desc">中注协·注会考试报名系统</div>
+      </div>
+    </a>
+    <a class="link-card" href="https://www.cicpa.org.cn/ksfw/kscj/" target="_blank">
+      <div class="link-icon" style="background:#f0fdf4;">🏆</div>
+      <div class="info">
+        <div class="title">CPA 成绩查询</div>
+        <div class="desc">中注协·考试成绩查询入口</div>
+      </div>
+    </a>
+    <a class="link-card" href="https://ausm.mof.gov.cn/index/" target="_blank">
+      <div class="link-icon" style="background:#fefce8;">📝</div>
+      <div class="info">
+        <div class="title">中级会计 报名/成绩</div>
+        <div class="desc">全国会计人员统一服务管理平台</div>
+      </div>
+    </a>
+    <a class="link-card" href="https://www.cicpa.org.cn/" target="_blank">
+      <div class="link-icon" style="background:#eff6ff;">🏛️</div>
+      <div class="info">
+        <div class="title">中注协官网</div>
+        <div class="desc">政策公告·考试大纲·通知</div>
+      </div>
+    </a>
+    <a class="link-card" href="http://xhslink.com/o/9jjQRS7mvzN" target="_blank">
+      <div class="link-icon" style="background:#fce7f3;">🌸</div>
+      <div class="info">
+        <div class="title">帕丝学堂小红书</div>
+        <div class="desc">备考资料·经验分享·最新动态</div>
+      </div>
+    </a>
+    <a class="link-card" href="https://www.ctatax.org.cn/" target="_blank">
+      <div class="link-icon" style="background:#f0fdf4;">📑</div>
+      <div class="info">
+        <div class="title">税务师报名/成绩</div>
+        <div class="desc">中国注册税务师协会官网</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- COUNTDOWN + PLAN -->
+  <div class="two-col">
+    <!-- COUNTDOWN -->
+    <div class="card">
+      <div class="section-title">⏰ 考试倒计时</div>
+      <div class="countdown-grid" id="countdownGrid">
+        <div class="countdown-item">
+          <div class="exam-name">CPA 专业阶段</div>
+          <div class="days" id="cpaDays">--</div>
+          <div class="days-label">天</div>
+          <div class="exam-date">预计：2026年8月29-30日</div>
+        </div>
+        <div class="countdown-item" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);">
+          <div class="exam-name">中级会计职称</div>
+          <div class="days" id="zhongjiDays" style="color:var(--green)">--</div>
+          <div class="days-label">天</div>
+          <div class="exam-date">预计：2026年9月5-6日</div>
+        </div>
+        <div class="countdown-item" style="background:linear-gradient(135deg,#fff7ed,#fef9c3);">
+          <div class="exam-name">CPA 综合阶段</div>
+          <div class="days" id="cpaSynthDays" style="color:var(--accent-dark)">--</div>
+          <div class="days-label">天</div>
+          <div class="exam-date">预计：2026年8月30日</div>
+        </div>
+        <div class="countdown-item" style="background:linear-gradient(135deg,#fdf4ff,#ede9fe);">
+          <div class="exam-name">税务师考试</div>
+          <div class="days" id="taxDays" style="color:var(--purple)">--</div>
+          <div class="days-label">天</div>
+          <div class="exam-date">预计：2026年11月初</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBJECT HOURS -->
+    <div class="card">
+      <div class="section-title">📚 各科备考时间参考</div>
+      <div class="subject-grid">
+        <div class="subject-item big-subject">
+          <span class="sname">📘 会计</span>
+          <span class="shours">约300小时</span>
+        </div>
+        <div class="subject-item big-subject">
+          <span class="sname">🔍 审计</span>
+          <span class="shours">约300小时</span>
+        </div>
+        <div class="subject-item big-subject">
+          <span class="sname">💰 财务管理</span>
+          <span class="shours">约300小时</span>
+        </div>
+        <div class="subject-item">
+          <span class="sname">📋 税法</span>
+          <span class="shours">约180小时</span>
+        </div>
+        <div class="subject-item">
+          <span class="sname">⚖️ 经济法</span>
+          <span class="shours">约180小时</span>
+        </div>
+        <div class="subject-item">
+          <span class="sname">🌐 战略</span>
+          <span class="shours">约180小时</span>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-top:10px;">
+        🔴 大科：三轮备考约300h &nbsp;|&nbsp; 🔵 小科：三轮备考约180h
+      </div>
+    </div>
+  </div>
+
+  <!-- LEARNING PLAN -->
+  <div class="card" style="margin-bottom:24px;">
+    <div class="section-title">📅 学习规划方案</div>
+    <div class="plan-tabs">
+      <div class="plan-tab active" onclick="showPlan('plan1y', this)">1年6科（全职/有基础）</div>
+      <div class="plan-tab" onclick="showPlan('plan2y', this)">2年6科（在职推荐）</div>
+      <div class="plan-tab" onclick="showPlan('plan3y', this)">3年6科（基础弱/时间少）</div>
+      <div class="plan-tab" onclick="showPlan('planStudent', this)">在校学生方案</div>
+      <div class="plan-tab" onclick="showPlan('planZhongji', this)">中级职称方案</div>
+    </div>
+
+    <div id="plan1y" class="plan-content active">
+      <div style="background:#eff6ff;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;">
+        <strong>适合人群：</strong>全职备考、有一定会计基础 &nbsp;|&nbsp; <strong>目标：</strong>1年通过6科 &nbsp;|&nbsp; <strong>总时长：约1500小时</strong>
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">1</div>
+        <div><div class="pi-title">第一轮：打基础 <span class="hours-badge">1~3月</span></div><div class="pi-desc">系统听课+复盘+章节习题，建立知识框架。科目：会计+税法+经济法+战略（4科）</div></div>
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">2</div>
+        <div><div class="pi-title">第二轮：强化刷题 <span class="hours-badge">4~6月</span></div><div class="pi-desc">大量刷题、主观题练习、薄弱点专项突破。同时推进财管+审计课程。</div></div>
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">3</div>
+        <div><div class="pi-title">第三轮：冲刺 <span class="hours-badge">7~8月</span></div><div class="pi-desc">刷套题+应试技巧+知识取舍，重点科目最后强化。三轮通过率约90%。</div></div>
+      </div>
+      <div class="price-card" style="margin-top:16px;">
+        <h3>🎯 推荐班型：2年6科带学班</h3>
+        <div class="price">¥7,980</div>
+        <div class="price-note">可免息分期 · 不过重修</div>
+        <button class="consult-btn" onclick="openConsultation()">📞 免费咨询</button>
+      </div>
+    </div>
+
+    <div id="plan2y" class="plan-content">
+      <div style="background:#f0fdf4;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;">
+        <strong>适合人群：</strong>在职，每天1~2小时 &nbsp;|&nbsp; <strong>目标：</strong>2年通过6科
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">1</div>
+        <div><div class="pi-title">第一年科目 <span class="hours-badge">3科</span></div><div class="pi-desc">会计 + 税法 + 经济法（难度适中，互补性强）</div></div>
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">2</div>
+        <div><div class="pi-title">第二年科目 <span class="hours-badge">3科</span></div><div class="pi-desc">审计 + 财务管理 + 战略（难度大科集中攻克）</div></div>
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">3</div>
+        <div><div class="pi-title">每天学习计划</div><div class="pi-desc">工作日：1.5~2小时 &nbsp;|&nbsp; 周末：3~4小时 &nbsp;|&nbsp; 碎片时间：听音频/复习要点</div></div>
+      </div>
+      <div class="price-card" style="margin-top:16px;">
+        <h3>🎯 推荐班型：2年6科带学班</h3>
+        <div class="price">¥7,980</div>
+        <div class="price-note">可免息分期 · 不过重修</div>
+        <button class="consult-btn" onclick="openConsultation()">📞 免费咨询</button>
+      </div>
+    </div>
+
+    <div id="plan3y" class="plan-content">
+      <div style="background:#fefce8;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;">
+        <strong>适合人群：</strong>零基础或工作繁忙，每天不足1小时 &nbsp;|&nbsp; <strong>目标：</strong>3年通过6科
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">1</div>
+        <div><div class="pi-title">第一年 <span class="hours-badge">2科</span></div><div class="pi-desc">经济法 + 战略（小科，相对轻松，建立信心）</div></div>
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">2</div>
+        <div><div class="pi-title">第二年 <span class="hours-badge">2科</span></div><div class="pi-desc">会计 + 税法（核心科目重点突破）</div></div>
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">3</div>
+        <div><div class="pi-title">第三年 <span class="hours-badge">2科</span></div><div class="pi-desc">审计 + 财务管理（大科最后攻克）</div></div>
+      </div>
+      <div class="price-card" style="margin-top:16px;">
+        <h3>🎯 推荐班型：3年6科带学班</h3>
+        <div class="price">¥18,800</div>
+        <div class="price-note">可免息分期 · VIP服务</div>
+        <button class="consult-btn" onclick="openConsultation()">📞 免费咨询</button>
+      </div>
+    </div>
+
+    <div id="planStudent" class="plan-content">
+      <div style="background:#fdf4ff;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;">
+        <strong>适合人群：</strong>大三大四在校学生 &nbsp;|&nbsp; <strong>优势：</strong>时间相对充裕，与课程结合
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">1</div>
+        <div><div class="pi-title">大三上 <span class="hours-badge">备考启动</span></div><div class="pi-desc">先学会计+经济法，与学校课程高度重叠，事半功倍</div></div>
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">2</div>
+        <div><div class="pi-title">大三下~大四上 <span class="hours-badge">4科</span></div><div class="pi-desc">会计+税法+经济法+战略，利用暑假集中突破</div></div>
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">3</div>
+        <div><div class="pi-title">大四 <span class="hours-badge">2科冲刺</span></div><div class="pi-desc">审计+财管，全力冲刺，毕业即拿证，竞争力MAX</div></div>
+      </div>
+      <div class="price-card" style="margin-top:16px;">
+        <h3>🎯 推荐班型：2年6科带学班</h3>
+        <div class="price">¥7,980</div>
+        <div class="price-note">可免息分期 · 学生优惠</div>
+        <button class="consult-btn" onclick="openConsultation()">📞 免费咨询</button>
+      </div>
+    </div>
+
+    <div id="planZhongji" class="plan-content">
+      <div style="background:#eff6ff;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;">
+        <strong>适合人群：</strong>备考中级会计职称（3科：中级会计实务、财务管理、经济法）
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">1</div>
+        <div><div class="pi-title">第一轮：1~4月 <span class="hours-badge">打基础</span></div><div class="pi-desc">三科同步开课，中级会计实务优先，夯实理论基础，完成每章习题</div></div>
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">2</div>
+        <div><div class="pi-title">第二轮：5~7月 <span class="hours-badge">刷题强化</span></div><div class="pi-desc">历年真题+模拟题，财务管理计算题重点突破，经济法背诵记忆</div></div>
+      </div>
+      <div class="plan-item">
+        <div class="plan-step">3</div>
+        <div><div class="pi-title">第三轮：8~9月 <span class="hours-badge">冲刺阶段</span></div><div class="pi-desc">套题模拟+知识点梳理+易错点总结，每科至少做5套模拟题</div></div>
+      </div>
+      <div class="price-card" style="margin-top:16px;">
+        <h3>🎯 推荐班型：中级1年全科带学班</h3>
+        <div class="price">¥3,999</div>
+        <div class="price-note">1+1考季保障 · 不过重修</div>
+        <button class="consult-btn" onclick="openConsultation()">📞 免费咨询</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- THREE ROUND METHOD -->
+  <div class="card" style="margin-bottom:24px;">
+    <div class="section-title">🔄 三轮备考法（帕丝专属）</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+      <div style="background:linear-gradient(135deg,#eff6ff,#e0e7ff);border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:28px;margin-bottom:8px;">📖</div>
+        <div style="font-weight:700;font-size:14px;margin-bottom:6px;">第一轮</div>
+        <div style="font-size:12px;color:var(--muted);">听课+复盘+章节习题<br>构建知识框架</div>
+      </div>
+      <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:28px;margin-bottom:8px;">✏️</div>
+        <div style="font-weight:700;font-size:14px;margin-bottom:6px;">第二轮</div>
+        <div style="font-size:12px;color:var(--muted);">刷题巩固+主观题练习<br>强化突破薄弱点</div>
+      </div>
+      <div style="background:linear-gradient(135deg,#fdf4ff,#ede9fe);border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:28px;margin-bottom:8px;">🚀</div>
+        <div style="font-weight:700;font-size:14px;margin-bottom:6px;">第三轮</div>
+        <div style="font-size:12px;color:var(--muted);">刷套题+应试技巧<br>知识取舍冲刺</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:14px;background:#f8faff;border-radius:10px;padding:10px;font-size:13px;color:var(--primary);font-weight:600;">
+      三轮下来，帕丝单科通过率约 <span style="font-size:20px;font-weight:800;">92%</span> 🎯
+    </div>
+  </div>
+
+  <!-- SUCCESS CASES -->
+  <div class="card" style="margin-bottom:24px;">
+    <div class="section-title">🌟 学员成功案例</div>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-avatar">👨</div>
+          <div>
+            <div class="case-name">张先生</div>
+            <span class="case-tag">49岁</span>
+          </div>
+        </div>
+        <div class="case-result">✅ 2年过CPA 6科</div>
+        <div class="case-info">在职备考，每天坚持学习，用行动证明年龄不是障碍</div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-avatar">👩</div>
+          <div>
+            <div class="case-name">李女士</div>
+            <span class="case-tag">59岁</span>
+          </div>
+        </div>
+        <div class="case-result">✅ 2年过5科</div>
+        <div class="case-info">退休后重拾书本，毅力感人，最后一科也将顺利拿下</div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-avatar">🎓</div>
+          <div>
+            <div class="case-name">王同学</div>
+            <span class="case-tag">应届生</span>
+          </div>
+        </div>
+        <div class="case-result">✅ 1年过6科</div>
+        <div class="case-info">全职备考，基础扎实，合理规划，一鼓作气全部通关</div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-avatar">💼</div>
+          <div>
+            <div class="case-name">赵经理</div>
+            <span class="case-tag">35岁</span>
+          </div>
+        </div>
+        <div class="case-result">✅ 在职2年过6科</div>
+        <div class="case-info">工作繁忙但坚持学习，平衡好工作与备考的时间分配</div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-avatar">🎓</div>
+          <div>
+            <div class="case-name">陈同学</div>
+            <span class="case-tag">应届生</span>
+          </div>
+        </div>
+        <div class="case-result">✅ 毕业即拿证</div>
+        <div class="case-info">大学期间开始备考，毕业时已经拿到CPA证书，就业竞争力MAX</div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-avatar">📚</div>
+          <div>
+            <div class="case-name">刘先生</div>
+            <span class="case-tag">零基础</span>
+          </div>
+        </div>
+        <div class="case-result">✅ 3年过6科</div>
+        <div class="case-info">会计零基础，从零开始，稳扎稳打，三年完成全部科目</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEACHERS -->
+  <div class="card" style="margin-bottom:24px;">
+    <div class="section-title">🎓 明师团队 · 点击查看详细介绍</div>
+    <div class="teachers-grid" id="teachersGrid">
+      <div class="teacher-card" onclick="showTeacherDetail(1)">
+        <div class="teacher-avatar">🐒</div>
+        <div class="teacher-name">猴哥帕丝</div>
+        <div class="teacher-role">创始人</div>
+        <div class="teacher-subjects">主讲：经济法</div>
+      </div>
+      <div class="teacher-card" onclick="showTeacherDetail(2)">
+        <div class="teacher-avatar">🎯</div>
+        <div class="teacher-name">冯时</div>
+        <div class="teacher-role">CPA+税务师+经济师</div>
+        <div class="teacher-subjects">主讲：会计</div>
+      </div>
+      <div class="teacher-card" onclick="showTeacherDetail(3)">
+        <div class="teacher-avatar">⚡</div>
+        <div class="teacher-name">赵飞</div>
+        <div class="teacher-role">1年6科大神</div>
+        <div class="teacher-subjects">主讲：财管·税法</div>
+      </div>
+      <div class="teacher-card" onclick="showTeacherDetail(4)">
+        <div class="teacher-avatar">🔍</div>
+        <div class="teacher-name">任毅明</div>
+        <div class="teacher-role">8年实战经验</div>
+        <div class="teacher-subjects">主讲：审计</div>
+      </div>
+      <div class="teacher-card" onclick="showTeacherDetail(5)">
+        <div class="teacher-avatar">🌸</div>
+        <div class="teacher-name">封采</div>
+        <div class="teacher-role">2年3证达人</div>
+        <div class="teacher-subjects">主讲：经济法</div>
+      </div>
+      <div class="teacher-card" onclick="showTeacherDetail(6)">
+        <div class="teacher-avatar">🏆</div>
+        <div class="teacher-name">李洪辉</div>
+        <div class="teacher-role">云南领军人才</div>
+        <div class="teacher-subjects">主讲：战略</div>
+      </div>
+      <div class="teacher-card" onclick="showTeacherDetail(7)">
+        <div class="teacher-avatar">📊</div>
+        <div class="teacher-name">一立叁</div>
+        <div class="teacher-role">中级专属讲师</div>
+        <div class="teacher-subjects">主讲：中级实务·财管入门</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- USER FORM -->
+  <div class="card">
+    <div class="section-title">📝 获取专属备考方案</div>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">填写信息，一诺老师为您定制学习计划 + 推荐班型</p>
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>姓名</label>
+          <input type="text" name="name" placeholder="请输入姓名" required />
+        </div>
+        <div class="form-group">
+          <label>手机号</label>
+          <input type="tel" name="phone" placeholder="请输入手机号" required />
+        </div>
+        <div class="form-group">
+          <label>身份</label>
+          <select name="identity" required>
+            <option value="">请选择</option>
+            <option value="student">在校学生</option>
+            <option value="working">在职人员</option>
+            <option value="other">其他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>考证类型</label>
+          <select name="examType" required>
+            <option value="">请选择</option>
+            <option value="cpa">CPA注册会计师</option>
+            <option value="zhongji">中级会计职称</option>
+            <option value="shuiwu">税务师</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>几年拿证</label>
+          <select name="duration" required>
+            <option value="">请选择</option>
+            <option value="1">1年</option>
+            <option value="2">2年</option>
+            <option value="3">3年</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>每周学习时间</label>
+          <select name="weeklyHours" required>
+            <option value="">请选择</option>
+            <option value="1-5">1-5小时</option>
+            <option value="6-10">6-10小时</option>
+            <option value="11-20">11-20小时</option>
+            <option value="20+">20小时以上</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>会计基础</label>
+          <select name="accountingBase" required>
+            <option value="">请选择</option>
+            <option value="none">零基础</option>
+            <option value="basic">有基础</option>
+            <option value="advanced">基础较好</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>考证目的</label>
+          <select name="purpose" required>
+            <option value="">请选择</option>
+            <option value="promotion">晋升加薪</option>
+            <option value="job">求职就业</option>
+            <option value="skill">提升技能</option>
+            <option value="other">其他</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="form-submit">📤 提交信息获取专属规划</button>
+    </form>
+  </div>
+
+  <!-- RESULT SECTION -->
+  <div id="resultSection" class="card">
+    <div class="result-header">
+      <div>
+        <div class="result-title">🎉 您的专属备考方案</div>
+        <div style="font-size:13px; color:var(--muted); margin-top:4px;">根据您的信息，一诺老师为您定制</div>
+      </div>
+      <span class="result-badge">已生成</span>
+    </div>
+
+    <div class="result-section">
+      <h4>📊 推荐班型</h4>
+      <div class="result-content" id="resultClass"></div>
+    </div>
+
+    <div class="result-section">
+      <h4>🔄 三轮带学规划</h4>
+      <div class="result-content">
+        <ul>
+          <li><strong>第一轮（打基础）</strong>：系统听课 + 每日复盘 + 章节习题，构建完整知识框架</li>
+          <li><strong>第二轮（刷题强化）</strong>：大量刷题 + 主观题专项训练 + 薄弱点突破</li>
+          <li><strong>第三轮（冲刺提分）</strong>：套题模拟 + 应试技巧训练 + 知识点取舍优化</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="result-section">
+      <h4>💝 学习服务内容</h4>
+      <div class="result-content">
+        <ul>
+          <li>1对1专属学习计划制定与调整</li>
+          <li>每日学习提醒 + 学习进度监督</li>
+          <li>每日复盘检查 + 随时答疑解惑</li>
+          <li>全套备考资料提供（讲义+真题+习题库）</li>
+          <li>考前冲刺重点筛选 + 应试技巧指导</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="result-section">
+      <h4>📅 大致学习计划</h4>
+      <div class="result-content" id="resultPlan"></div>
+    </div>
+
+    <button class="enroll-btn" onclick="openEnrollModal()">📞 立即报名咨询一诺老师<br><span style="font-size:12px; font-weight:400;">领取详细学习计划 + 学习优惠方案</span></button>
+  </div>
+
+</div>
+
+<!-- TEACHER DETAIL MODAL -->
+<div id="teacherDetailModal" class="teacher-detail-modal">
+  <div class="teacher-detail-content">
+    <button class="teacher-detail-close" onclick="closeTeacherDetail()">×</button>
+    <div class="teacher-detail-avatar" id="detailAvatar">🐒</div>
+    <div class="teacher-detail-name" id="detailName">教师姓名</div>
+    <div class="teacher-detail-badges" id="detailBadges"></div>
+    <div class="teacher-detail-subject" id="detailSubject">主讲：科目</div>
+    <div class="teacher-detail-desc" id="detailDesc"></div>
+  </div>
+</div>
+
+<div class="footer">
+  帕丝学堂 · 备考规划师工具 &nbsp;|&nbsp; 数据仅供参考，以官网最新公告为准
+  <br>官网: <a href="https://www.cicpa.org.cn/" target="_blank" style="color:var(--primary);">CICPA中注协</a> &nbsp;|&nbsp;
+  <a href="https://ausm.mof.gov.cn/index/" target="_blank" style="color:var(--primary);">全国会计人员统一服务管理平台</a>
+</div>
+
+<!-- CONSULTATION MODAL -->
+<div id="consultModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeConsultation()">×</button>
+    <h3>📞 扫码咨询</h3>
+    <p>扫码添加企业微信<br>获取专属备考方案</p>
+    <img src="qrcode.png.jpg" alt="企业微信二维码" class="modal-qrcode" onerror="this.src='https://via.placeholder.com/220x220?text=二维码加载失败'" />
+  </div>
+</div>
+
+<!-- ENROLL MODAL -->
+<div id="enrollModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeEnrollModal()">×</button>
+    <h3>📞 扫码咨询一诺老师</h3>
+    <p>领取详细学习计划<br>+ 学习优惠方案</p>
+    <img src="qrcode.png.jpg" alt="企业微信二维码" class="modal-qrcode" onerror="this.src='https://via.placeholder.com/220x220?text=二维码加载失败'" />
+  </div>
+</div>
+
+<script>
+// ── SEARCH TYPE ──
+const quickTagMap = {
+  cpa: ['CPA真题', 'CPA讲义', '会计备考资料', '审计笔记', '财管公式', '税法知识点', 'CPA备考计划', '注会通过率'],
+  zhongji: ['中级会计实务真题', '中级财务管理', '中级经济法', '中级备考计划', '中级通过率', '中级刷题'],
+  shuiwu: ['税务师真题', '税务师备考', '涉税服务实务', '税法大全']
+};
+let currentType = 'cpa';
+function setSearchType(type, el) {
+  currentType = type;
+  document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderQuickTags(type);
+  const placeholders = {
+    cpa: '搜索CPA备考资料、真题、讲义...',
+    zhongji: '搜索中级会计备考资料、真题...',
+    shuiwu: '搜索税务师备考资料、真题...'
+  };
+  document.getElementById('searchInput').placeholder = placeholders[type];
+}
+function renderQuickTags(type) {
+  const el = document.getElementById('quickTags');
+  el.innerHTML = quickTagMap[type].map(tag =>
+    `<span class="quick-tag" onclick="setAndSearch('${tag}')">${tag}</span>`
+  ).join('');
+}
+renderQuickTags('cpa');
+function setAndSearch(tag) {
+  document.getElementById('searchInput').value = tag;
+  doSearch('baidu');
+}
+
+// ── SEARCH ──
+function doSearch(engine) {
+  const input = document.getElementById('searchInput').value.trim();
+  if (!input) return;
+  
+  const typePrefix = { cpa: 'CPA注册会计师 ', zhongji: '中级会计职称 ', shuiwu: '税务师 ' };
+  
+  // 百度搜索：优先显示帕丝学堂，排除高顿等竞争机构
+  let baiduQuery = encodeURIComponent('帕丝学堂 ' + (typePrefix[currentType] || '') + input + ' -高顿');
+  
+  // 其他搜索平台
+  let query = encodeURIComponent((typePrefix[currentType] || '') + input);
+  
+  const urls = {
+    baidu: `https://www.baidu.com/s?wd=${baiduQuery}`,
+    zhihu: `https://www.zhihu.com/search?type=content&q=${query}`,
+    baidu_wenku: `https://wenku.baidu.com/search?word=${encodeURIComponent('帕丝学堂 ' + input)}`
+  };
+  if (urls[engine]) window.open(urls[engine], '_blank');
+}
+
+function doXhsSearch() {
+  const input = document.getElementById('searchInput').value.trim();
+  if (!input) return;
+  const query = encodeURIComponent(`帕丝学堂 ${input}`);
+  window.open(`https://www.xiaohongshu.com/search_result?keyword=${query}`, '_blank');
+}
+
+document.getElementById('searchInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') doSearch('baidu');
+});
+
+// ── TEACHER DATA ──
+const teachers = [
+  {
+    id: 1,
+    name: '猴哥帕丝',
+    avatar: '🐒',
+    subject: '主讲：CPA经济法',
+    badges: ['CPA', '法考', '创始人'],
+    desc: `<p><strong>帕丝学堂创始人，CPA+法考双证持有者</strong></p><p>一年速通CPA六科，曾任上市公司财务总监，主讲CPA经济法。擅长法理拆解，拒绝死记硬背，授课直击考点、应试性拉满。</p>`
+  },
+  {
+    id: 2,
+    name: '冯时',
+    avatar: '🎯',
+    subject: '主讲：CPA会计',
+    badges: ['CPA', '税务师', '经济师'],
+    desc: `<p><strong>CPA+税务师+经济师三证在手，TOP事务所项目经理，主讲CPA会计</strong></p><p>独创"点线面"教学法，只讲考点、不讲废话，理论结合实战，零基础也能快速吃透。</p>`
+  },
+  {
+    id: 3,
+    name: '赵飞',
+    avatar: '⚡',
+    subject: '主讲：CPA财管/税法',
+    badges: ['CPA一年六科'],
+    desc: `<p><strong>一年过CPA六科，立信事务所资深审计经理，主讲CPA财管/税法</strong></p><p>融合六科知识体系，授课深入浅出，深谙命题规律，帮学员高效拿分。</p>`
+  },
+  {
+    id: 4,
+    name: '任毅明',
+    avatar: '🔍',
+    subject: '主讲：CPA审计',
+    badges: ['CPA', '中级', '税务师', '8年经验'],
+    desc: `<p><strong>CPA+中级+税务师持证，8年财会授课经验，主讲CPA审计</strong></p><p>授课生动易懂，自编讲义被誉为"备考宝典"，零基础学员友好度拉满。</p>`
+  },
+  {
+    id: 5,
+    name: '封采（封敏）',
+    avatar: '🌸',
+    subject: '主讲：CPA经济法',
+    badges: ['CPA', '法考', 'CIIA'],
+    desc: `<p><strong>2年拿下CPA+法考+CIIA三证，主编多款爆款教辅资料，主讲CPA经济法</strong></p><p>擅长口诀记忆、对比讲解，大幅减轻背诵压力。</p>`
+  },
+  {
+    id: 6,
+    name: '李洪辉',
+    avatar: '🏆',
+    subject: '主讲：CPA战略',
+    badges: ['CPA', '税务师', '高会', '领军人才'],
+    desc: `<p><strong>云南会计领军人才，持有CPA+税务师+高会等多证书，大型企业财务总监，主讲CPA战略</strong></p><p>采用案例教学法，重点突出、通俗易懂。</p>`
+  },
+  {
+    id: 7,
+    name: '一立叁',
+    avatar: '📊',
+    subject: '主讲：中级实务/财管入门',
+    badges: ['中级专属'],
+    desc: `<p><strong>中级会计专属讲师，主讲中级实务/财管入门</strong></p><p>专攻零基础破冰教学，详解计算器技巧、V模式输入法，帮小白快速入门。</p>`
+  }
+];
+
+// ── SHOW TEACHER DETAIL ──
+function showTeacherDetail(id) {
+  const teacher = teachers.find(t => t.id === id);
+  if (!teacher) return;
+  
+  document.getElementById('detailAvatar').textContent = teacher.avatar;
+  document.getElementById('detailName').textContent = teacher.name;
+  document.getElementById('detailSubject').textContent = teacher.subject;
+  document.getElementById('detailBadges').innerHTML = teacher.badges.map(b => 
+    `<span class="teacher-detail-badge">${b}</span>`
+  ).join('');
+  document.getElementById('detailDesc').innerHTML = teacher.desc;
+  
+  document.getElementById('teacherDetailModal').classList.add('active');
+}
+
+function closeTeacherDetail() {
+  document.getElementById('teacherDetailModal').classList.remove('active');
+}
+
+// ── PLAN TABS ──
+function showPlan(id, el) {
+  document.querySelectorAll('.plan-content').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.plan-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+}
+
+// ── COUNTDOWN ──
+function calcDays(dateStr) {
+  const target = new Date(dateStr);
+  const now = new Date();
+  const diff = Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+  return diff > 0 ? diff : 0;
+}
+document.getElementById('cpaDays').textContent = calcDays('2026-08-29');
+document.getElementById('cpaSynthDays').textContent = calcDays('2026-08-30');
+document.getElementById('zhongjiDays').textContent = calcDays('2026-09-06');
+document.getElementById('taxDays').textContent = calcDays('2026-11-01');
+
+// ── UPDATE TIME ──
+const now = new Date();
+document.getElementById('updateTime').textContent =
+  `页面更新：${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+
+// ── CONSULTATION MODAL ──
+function openConsultation() {
+  document.getElementById('consultModal').classList.add('active');
+}
+function closeConsultation() {
+  document.getElementById('consultModal').classList.remove('active');
+}
+
+// ── ENROLL MODAL ──
+function openEnrollModal() {
+  document.getElementById('enrollModal').classList.add('active');
+}
+function closeEnrollModal() {
+  document.getElementById('enrollModal').classList.remove('active');
+}
+
+// ── FORM SUBMIT ──
+function handleSubmit(e) {
+  e.preventDefault();
+  
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData);
+  
+  // 推荐班型
+  let recommendClass = '';
+  let recommendPrice = '';
+  let recommendNote = '';
+  
+  if (data.examType === 'cpa') {
+    if (data.duration === '1' || data.duration === '2') {
+      recommendClass = '2年6科带学班';
+      recommendPrice = '¥7,980';
+      recommendNote = '可免息分期 · 不过重修';
+    } else if (data.duration === '3') {
+      recommendClass = '3年6科带学班';
+      recommendPrice = '¥18,800';
+      recommendNote = '可免息分期 · VIP服务';
+    }
+  } else if (data.examType === 'zhongji') {
+    if (data.duration === '1') {
+      recommendClass = '中级1年全科带学班';
+      recommendPrice = '¥3,999';
+      recommendNote = '1+1考季保障 · 不过重修';
+    } else if (data.duration === '2') {
+      recommendClass = '中级2年全科带学班';
+      recommendPrice = '¥9,999';
+      recommendNote = '1+1考季保障 · VIP小群';
+    }
+  } else if (data.examType === 'shuiwu') {
+    recommendClass = '税务师全科带学班';
+    recommendPrice = '¥6,980';
+    recommendNote = '全套服务 · 不过重修';
+  }
+  
+  document.getElementById('resultClass').innerHTML = `
+    <div style="font-size:20px; font-weight:700; color:var(--primary);">${recommendClass}</div>
+    <div style="font-size:28px; font-weight:800; color:var(--red); margin:8px 0;">${recommendPrice}</div>
+    <div style="font-size:12px; color:#a16207;">${recommendNote}</div>
+  `;
+  
+  // 学习计划
+  let planHTML = '';
+  if (data.examType === 'cpa') {
+    if (data.duration === '1' || data.duration === '2') {
+      planHTML = `
+        <ul>
+          <li><strong>第1-3月</strong>：第一轮打基础 - 会计+税法+经济法系统学习</li>
+          <li><strong>第4-6月</strong>：第二轮刷题强化 - 主观题专项突破</li>
+          <li><strong>第7-8月</strong>：第三轮冲刺提分 - 套题模拟+应试技巧</li>
+        </ul>
+      `;
+    } else {
+      planHTML = `
+        <ul>
+          <li><strong>第一年</strong>：经济法+战略（建立信心）</li>
+          <li><strong>第二年</strong>：会计+税法（核心突破）</li>
+          <li><strong>第三年</strong>：审计+财管（最后攻克）</li>
+        </ul>
+      `;
+    }
+  } else if (data.examType === 'zhongji') {
+    planHTML = `
+      <ul>
+        <li><strong>1-4月</strong>：第一轮打基础 - 三科同步学习</li>
+        <li><strong>5-7月</strong>：第二轮刷题强化 - 真题训练</li>
+        <li><strong>8-9月</strong>：第三轮冲刺提分 - 套题模拟</li>
+      </ul>
+    `;
+  }
+  
+  document.getElementById('resultPlan').innerHTML = planHTML;
+  
+  // 显示结果
+  document.getElementById('resultSection').style.display = 'block';
+  
+  // 滚动到结果区
+  document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// 点击模态框外部关闭
+document.querySelectorAll('.modal, .teacher-detail-modal').forEach(modal => {
+  modal.addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.classList.remove('active');
+    }
+  });
+});
+</script>
+</body>
+</html>
