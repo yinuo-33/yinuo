@@ -705,6 +705,19 @@
 </style>
 </head>
 <body>
+<!-- PASSWORD GATE -->
+<div id="passwordGate" style="position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 60%,#7c3aed 100%);z-index:99999;display:flex;align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:20px;padding:40px 36px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.35);text-align:center;">
+    <div style="font-size:48px;margin-bottom:12px;">🔐</div>
+    <div style="font-size:22px;font-weight:700;color:#1e293b;margin-bottom:6px;">帕丝学堂</div>
+    <div style="font-size:14px;color:#64748b;margin-bottom:28px;">备考规划师专属工具 · 请输入访问密码</div>
+    <input id="pwdInput" type="password" placeholder="请输入密码" onkeydown="if(event.key==='Enter')checkPwd()"
+      style="width:100%;padding:13px 18px;border:2px solid #e2e8f0;border-radius:10px;font-size:16px;outline:none;margin-bottom:14px;transition:border 0.2s;"
+      onfocus="this.style.borderColor='#2563eb'" onblur="this.style.borderColor='#e2e8f0'" />
+    <button onclick="checkPwd()" style="width:100%;padding:13px;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">进入工具站</button>
+    <div id="pwdErr" style="margin-top:12px;font-size:13px;color:#dc2626;min-height:20px;"></div>
+  </div>
+</div>
 
 <header>
   <div class="logo">帕丝学堂 · 学习规划师工具</div>
@@ -1657,7 +1670,35 @@ function handleSubmit(e) {
   // 滚动到结果区
   document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
-
+// ── PASSWORD GATE ──
+(function(){
+  if(sessionStorage.getItem('pasi_auth')==='1'){
+    document.getElementById('passwordGate').style.display='none';
+  }
+})();
+var _pwdTries=0,_pwdLocked=false;
+function checkPwd(){
+  if(_pwdLocked){document.getElementById('pwdErr').textContent='已锁定，请30秒后重试';return;}
+  var v=document.getElementById('pwdInput').value;
+  if(v==='nuoyi11'){
+    sessionStorage.setItem('pasi_auth','1');
+    var gate=document.getElementById('passwordGate');
+    gate.style.transition='opacity 0.5s';
+    gate.style.opacity='0';
+    setTimeout(function(){gate.style.display='none';},500);
+    _pwdTries=0;
+  } else {
+    _pwdTries++;
+    document.getElementById('pwdInput').value='';
+    if(_pwdTries>=3){
+      _pwdLocked=true;
+      document.getElementById('pwdErr').textContent='密码错误次数过多，锁定30秒';
+      setTimeout(function(){_pwdLocked=false;_pwdTries=0;document.getElementById('pwdErr').textContent='';},30000);
+    } else {
+      document.getElementById('pwdErr').textContent='密码错误，还可尝试'+(3-_pwdTries)+'次';
+    }
+  }
+}
 // 点击模态框外部关闭
 document.querySelectorAll('.modal, .teacher-detail-modal').forEach(modal => {
   modal.addEventListener('click', function(e) {
