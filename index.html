@@ -1680,7 +1680,7 @@ var _pwdTries=0,_pwdLocked=false;
 function checkPwd(){
   if(_pwdLocked){document.getElementById('pwdErr').textContent='已锁定，请30秒后重试';return;}
   var v=document.getElementById('pwdInput').value;
-  if(v==='nuoyi11'){
+  if(v==='1'){
     sessionStorage.setItem('pasi_auth','1');
     var gate=document.getElementById('passwordGate');
     gate.style.transition='opacity 0.5s';
